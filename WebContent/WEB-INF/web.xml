@@ -3,7 +3,9 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
+
 	<display-name>sunway-servlet-jsp</display-name>
+
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -12,6 +14,8 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+
+	<!-- ========= FOR SERVLET MAPPING ========= -->
 	<servlet>
 		<servlet-name>Hello</servlet-name>
 		<servlet-class>com.sunway.servlet.HelloWorld</servlet-class>
@@ -20,31 +24,36 @@
 		<servlet-name>Hello</servlet-name>
 		<url-pattern>/hello</url-pattern>
 	</servlet-mapping>
+	<!-- ========= FOR SERVLET MAPPING ========= -->
 
-	<!-- For Init Param -->
+	<!-- ========= FOR CONTEXT PARAM ========= -->
+	<context-param>
+		<param-name>email</param-name>
+		<param-value>abc@example.com</param-value>
+	</context-param>
+	<!-- ========= FOR CONTEXT PARAM ========= -->
+
+	<!-- ========= FOR INIT PARAM ========= -->
 	<servlet>
-		<servlet-name>InitParam</servlet-name>
-		<servlet-class>com.sunway.servlet.initparameter.InitParamInXmlServlet</servlet-class>
+		<servlet-name>Eg02InitParamServlet</servlet-name>
+		<servlet-class>com.sunway.servlet.initparam.Eg02InitParamServlet</servlet-class>
 		<init-param>
-			<param-name>my-name</param-name>
-			<param-value>Aviskar Basnet</param-value>
+			<param-name>email</param-name>
+			<param-value>pqr@example.com</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>InitParam</servlet-name>
-		<url-pattern>/init-param-xml</url-pattern>
+		<servlet-name>Eg02InitParamServlet</servlet-name>
+		<url-pattern>/init-param-1</url-pattern>
 	</servlet-mapping>
+	<!-- ========= FOR INIT PARAM ========= -->
 
-	<!-- For Session Config -->
+	<!-- ========= FOR SESSION CONFIG ========= -->
 	<session-config>
 		<cookie-config>
 			<max-age>1</max-age>
 		</cookie-config>
 	</session-config>
+	<!-- ========= FOR SESSION CONFIG ========= -->
 
-	<!-- For Context Param -->
-	<context-param>
-		<param-name>my-address</param-name>
-		<param-value>Kathmandu</param-value>
-	</context-param>
 </web-app>

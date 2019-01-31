@@ -10,15 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/cookie")
-public class CookieServlet extends HttpServlet {
+@WebServlet("/cookie-add-2")
+public class Eg02CookieAddServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.addCookie(new Cookie("lang", "np"));
+		Cookie cookie = new Cookie("theme", "black");
+		cookie.setMaxAge(5);
+		response.addCookie(cookie);
 		PrintWriter writer = response.getWriter();
-		writer.println("Cookie added!!");
+		writer.println("Cookie with max age added!!");
 	}
 }
