@@ -50,9 +50,10 @@
 
 	<!-- ========= FOR SESSION CONFIG ========= -->
 	<session-config>
-		<cookie-config>
-			<max-age>1</max-age>
-		</cookie-config>
+		<!-- <cookie-config> -->
+		<!-- <max-age>60</max-age> -->
+		<!-- </cookie-config> -->
+		<session-timeout>1</session-timeout>
 	</session-config>
 	<!-- ========= FOR SESSION CONFIG ========= -->
 

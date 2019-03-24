@@ -10,16 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/session")
-public class SessionServlet extends HttpServlet {
+@WebServlet("/session-read")
+public class SessionReadServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.setAttribute("language", "fr");
-		PrintWriter writer = response.getWriter();
-		writer.println("Data added in session!!");
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			PrintWriter writer = response.getWriter();
+			writer.println("language :: " + session.getAttribute("language"));
+		}
 	}
 }
